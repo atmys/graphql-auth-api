@@ -1,0 +1,9 @@
+before_script:
+  - sleep 15
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+language: node_js
+node_js:
+  - "node"
+services:
+  - mongodb
+after_success: npm run coverage

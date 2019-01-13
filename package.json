@@ -1,0 +1,61 @@
+{
+  "name": "gql-auth-api",
+  "version": "1.0.0",
+  "description": "API starter",
+  "author": "Romain Mougel",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "npm run eslint && nyc npm run spec",
+    "dev": "node -r dotenv/config index.js dotenv_config_path=./.env/.env",
+    "dev-live": "node -r dotenv/config index.js dotenv_config_path=./.env/.live.env",
+    "spec": "jasmine --config=jasmine/all.json",
+    "spec:unit": "jasmine --config=jasmine/unit.json",
+    "spec:int": "jasmine --config=jasmine/int.json",
+    "eslint": "eslint .",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atmys/gql-auth-api.git"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "api",
+    "starter",
+    "boilerplate",
+    "auth",
+    "jwt",
+    "mongoose",
+    "mongodb",
+    "graphql"
+  ],
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-cleaner": "^1.0.0",
+    "body-parser": "^1.18.3",
+    "ent": "^2.2.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.1.5",
+    "morgan": "^1.6.1",
+    "nodemailer": "^4.6.6",
+    "sanitize-html": "^1.18.2",
+    "serialize-error": "^2.1.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "dotenv": "^5.0.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "jasmine": "^3.1.0",
+    "nyc": "^13.1.0",
+    "request": "^2.87.0"
+  },
+  "bugs": {
+    "url": "https://github.com/atmys/gql-auth-api/issues"
+  },
+  "homepage": "https://github.com/atmys/gql-auth-api#readme"
+}
