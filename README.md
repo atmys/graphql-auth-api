@@ -15,7 +15,7 @@ It's built with [Node.js best practices](https://github.com/i0natan/nodebestprac
 Make sure you have MongoDB up & running.
 
 ```console
-mongod
+$ mongod
 ```
 
 ```console
@@ -42,16 +42,16 @@ You can check the expected environment variables in the config.js file.
 
 ```console
 // lint
-npm run eslint
+$ npm run eslint
 
 // run unit tests
-npm run spec:unit
+$ npm run spec:unit
 
 // run integration tests
-npm run spec:int
+$ npm run spec:int
 
 // run lint, all tests & coverage
-npm test
+$ npm test
 ```
 
 ## Built With
