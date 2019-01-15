@@ -1,5 +1,11 @@
 # GRAPHQL-AUTH-API
 
+[![Build Status](https://travis-ci.org/atmys/graphql-auth-api.svg?branch=master)](https://travis-ci.org/atmys/graphql-auth-api)
+[![Coverage Status](https://coveralls.io/repos/github/atmys/graphql-auth-api/badge.svg?branch=master)](https://coveralls.io/github/atmys/graphql-auth-api?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/atmys/graphql-auth-api/badge.svg?targetFile=package.json)](https://snyk.io/test/github/atmys/graphql-auth-api?targetFile=package.json)
+[![CodeFactor](https://www.codefactor.io/repository/github/atmys/graphql-auth-api/badge)](https://www.codefactor.io/repository/github/atmys/graphql-auth-api)
+
+
 Custom GraphQL API boilerplate for my needs with:
 - auth
 - mailing
