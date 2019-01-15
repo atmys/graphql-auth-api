@@ -34,9 +34,9 @@ app.use(async (req, res, next) => {
       req.user = undefined;
       return next();
     }
-    const decode = jwt.verify(req.headers.jwtauth, JWTSecret);
+    const decoded = jwt.verify(req.headers.jwtauth, JWTSecret);
     // FOR MAX SECURITY, RETRIEVE USER DATA ON EACH REQUEST. MIGHT IMPACT PERF.
-    const user = await User.findById(decode.id);
+    const user = await User.findById(decoded.id);
     shouldExist(user);
     req.user = user;
     return next();
@@ -52,12 +52,15 @@ app.use(async (req, res, next) => {
 app.use('/graphql', graphqlHTTP((req, res, graphQLParams) => ({
   schema: schema,
   rootValue: resolvers,
-  graphiql: true,
+  graphiql: !production,
   context: { user: req.user, graphQLParams },
   formatError(err) {
+    handleError(err, req);
     return {
       message: err.message,
-      code: err.originalError && err.originalError.code
+      code: err.originalError && err.originalError.code,
+      locations: err.locations,
+      path: err.path
     };
   }
 })));
