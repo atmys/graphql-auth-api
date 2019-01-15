@@ -1,5 +1,5 @@
 {
-  "name": "gql-auth-api",
+  "name": "graphql-auth-api",
   "version": "1.0.0",
   "description": "API starter",
   "author": "Romain Mougel",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atmys/gql-auth-api.git"
+    "url": "git+https://github.com/atmys/graphql-auth-api.git"
   },
   "keywords": [
     "node.js",
@@ -38,7 +38,11 @@
     "body-parser": "^1.18.3",
     "ent": "^2.2.0",
     "express": "^4.16.3",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
+    "graphql-tools": "^4.0.3",
     "jsonwebtoken": "^8.3.0",
+    "merge-graphql-schemas": "^1.5.8",
     "mongoose": "^5.1.5",
     "morgan": "^1.6.1",
     "nodemailer": "^4.6.6",
@@ -50,12 +54,13 @@
     "dotenv": "^5.0.1",
     "eslint": "^4.19.1",
     "eslint-plugin-jasmine": "^2.10.1",
+    "graphql-request": "^1.8.2",
     "jasmine": "^3.1.0",
     "nyc": "^13.1.0",
     "request": "^2.87.0"
   },
   "bugs": {
-    "url": "https://github.com/atmys/gql-auth-api/issues"
+    "url": "https://github.com/atmys/graphql-auth-api/issues"
   },
-  "homepage": "https://github.com/atmys/gql-auth-api#readme"
+  "homepage": "https://github.com/atmys/graphql-auth-api#readme"
 }

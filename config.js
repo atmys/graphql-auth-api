@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 exports.port = process.env.PORT || 8081;
 exports.production = process.env.NODE_ENV === 'production';
 exports.test = process.env.NODE_ENV === 'test';

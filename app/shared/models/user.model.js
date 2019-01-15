@@ -14,4 +14,15 @@ userSchema.methods.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
 };
 
+userSchema.statics.count = function (email) {
+    return this.countDocuments({ email });
+};
+
+userSchema.statics.createUserAndSave = async function (data) {
+    const newUser = new this(data);
+    newUser.password = newUser.generateHash(data.password);
+    await newUser.save();
+    return newUser;
+};
+
 module.exports = mongoose.model('User', userSchema);

@@ -3,9 +3,9 @@ const email = require('./email');
 const serializeError = require('serialize-error');
 const { production, test } = require('../../config')
 
-const newError = function (code, description, skipEmail) {
-    const err = new Error(`${code} - ${description}`);
-    err.description = description;
+const newError = function (code, message, skipEmail) {
+    const err = new Error(`${code} - ${message}`);
+    err.message = message;
     err.code = code;
     err.skipEmail = skipEmail;
     return err;

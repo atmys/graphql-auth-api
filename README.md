@@ -1,4 +1,4 @@
-# GQL-AUTH-API
+# GRAPHQL-AUTH-API
 
 Custom GraphQL API boilerplate for my needs with:
 - auth
@@ -12,7 +12,18 @@ It's built with [Node.js best practices](https://github.com/i0natan/nodebestprac
 
 ### Prerequisites
 
-Make sure you have MongoDB & Jasmine installed.
+Make sure you have MongoDB up & running.
+
+```console
+mongod
+```
+
+```console
+$ git clone https://github.com/atmys/graphql-auth-api.git
+$ cd graphql-auth-api
+$ npm install
+$ npm start
+```
 
 Using dotenv, your folder should have a .env folder with at least a .env file for development & a .spec.env file for testing.
 
@@ -29,9 +40,7 @@ You can check the expected environment variables in the config.js file.
 
 ## Running the tests
 
-Make sure you have MongoDB running.
-
-```
+```console
 // lint
 npm run eslint
 

@@ -1,13 +1,14 @@
 const express = require('express');
+const graphqlHTTP = require('express-graphql');
 const jwt = require("jsonwebtoken");
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 const { JWTSecret, production } = require('../config');
+const schema = require('./graphql/schema');
+const resolvers = require('./graphql/resolvers');
 const { User } = require('./shared/models');
 const { shouldExist, handleError } = require('./shared/error');
-
-const usersAPI = require('./users/users.api');
 
 const app = express();
 
@@ -35,23 +36,30 @@ app.use(async (req, res, next) => {
     }
     const decode = jwt.verify(req.headers.jwtauth, JWTSecret);
     // FOR MAX SECURITY, RETRIEVE USER DATA ON EACH REQUEST. MIGHT IMPACT PERF.
-    const user = await User.findById(decode._id);
+    const user = await User.findById(decode.id);
     shouldExist(user);
     req.user = user;
     return next();
   } catch (err) {
-    next(err);
+    err.code = err.code || 500;
+    handleError(err, req);
+    res.status(err.code).send({ error: err });
   }
 });
 
-// APIS
-app.use('/api/users', usersAPI);
+// API
 
-// ERROR HANDLING
-app.use((err, req, res, next) => {
-  handleError(err, req);
-  res.sendStatus(err.code || 500);
-  next(err);
-});
+app.use('/graphql', graphqlHTTP((req, res, graphQLParams) => ({
+  schema: schema,
+  rootValue: resolvers,
+  graphiql: true,
+  context: { user: req.user, graphQLParams },
+  formatError(err) {
+    return {
+      message: err.message,
+      code: err.originalError && err.originalError.code
+    };
+  }
+})));
 
 module.exports = app;

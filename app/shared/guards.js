@@ -1,6 +1,7 @@
-exports.isLoggedIn = function (req, res, next) {
-	if (req.user) {
-		return next();
+const { newError } = require('./error');
+
+exports.isLoggedIn = function (user) {
+	if (!user) {
+		throw newError(401, 'Unauthorized', true);
 	}
-	res.sendStatus(401);
 }
