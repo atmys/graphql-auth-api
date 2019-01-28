@@ -15,7 +15,6 @@ const app = express();
 // CONFIG
 app.use(bodyParser.json({ limit: '2mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '2mb' }));
-app.use(bodyParser.json());
 
 /* istanbul ignore if */
 if (production) {
@@ -35,7 +34,6 @@ app.use(async (req, res, next) => {
       return next();
     }
     const decoded = jwt.verify(req.headers.jwtauth, JWTSecret);
-    // FOR MAX SECURITY, RETRIEVE USER DATA ON EACH REQUEST. MIGHT IMPACT PERF.
     const user = await User.findById(decoded.id);
     shouldExist(user);
     req.user = user;
@@ -49,7 +47,7 @@ app.use(async (req, res, next) => {
 
 // API
 
-app.use('/graphql', graphqlHTTP((req, res, graphQLParams) => ({
+app.use('/api', graphqlHTTP((req, res, graphQLParams) => ({
   schema: schema,
   rootValue: resolvers,
   graphiql: !production,

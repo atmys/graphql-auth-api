@@ -5,7 +5,7 @@ const { port } = require('../config');
 const app = require('./app');
 const mongoose = require('mongoose');
 const request = require('request');
-const endPoint = `http://localhost:${port}/graphql`;
+const endPoint = `http://localhost:${port}/api`;
 
 beforeAll(done => {
     // FIRST WE CONNECT TO DB, CLEAN IT & START THE APP
