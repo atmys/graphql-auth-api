@@ -44,7 +44,7 @@
     "merge-graphql-schemas": "^1.5.8",
     "mongoose": "^5.1.5",
     "morgan": "^1.6.1",
-    "nodemailer": "^4.6.6",
+    "nodemailer": "^6.6.1",
     "sanitize-html": "^1.18.2",
     "serialize-error": "^2.1.0"
   },
