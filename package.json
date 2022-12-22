@@ -40,7 +40,7 @@
     "express": "^4.16.3",
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "merge-graphql-schemas": "^1.5.8",
     "mongoose": "^5.1.5",
     "morgan": "^1.6.1",
