@@ -37,7 +37,7 @@
     "body-cleaner": "^1.0.0",
     "body-parser": "^1.18.3",
     "ent": "^2.2.0",
-    "express": "^4.16.3",
+    "express": "^4.19.2",
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2",
     "jsonwebtoken": "^8.3.0",
